@@ -15,4 +15,7 @@ export class IncidentsDto {
 
     @IsNumber()
     statusId:number;
+
+    @IsNumber()
+    areaId:number;
 }

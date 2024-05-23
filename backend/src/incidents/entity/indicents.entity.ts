@@ -1,3 +1,4 @@
+import { AreaEntity } from "src/area/entity/area.entity";
 import { DateshEntity } from "src/dates-h/entity/dates-h.entity";
 import { SolutionsEntity } from "src/solutions/entity/solutions.entity";
 import { StatusEntity } from "src/status/entity/status.entity";
@@ -30,4 +31,7 @@ export class IncidentsEntity
 
     @ManyToOne(()=>StatusEntity,(status)=>status.incident,{nullable:true})
     status:StatusEntity;
+
+    @ManyToOne(()=>AreaEntity,(area)=>area.incident,{nullable:true})
+    area:AreaEntity;
 }

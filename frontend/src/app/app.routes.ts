@@ -21,5 +21,10 @@ export const routes: Routes = [
         path:"userAssigned/:id",
         component:UserAssignedComponent
     },
+    {
+        path : '**',
+        pathMatch : 'full',
+        redirectTo : 'home'
+      }
 
 ];
