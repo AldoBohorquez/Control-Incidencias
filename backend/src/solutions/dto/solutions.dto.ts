@@ -1,4 +1,4 @@
-import { IsDate, IsString } from "class-validator";
+import { IsDate, IsNumber, IsString } from "class-validator";
 
 export class SolutionsDto
 {
@@ -8,4 +8,7 @@ export class SolutionsDto
     desc:string;
     @IsDate()
     fechaI:Date;
+
+    @IsNumber()
+    incidentId:number;
 }

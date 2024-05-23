@@ -1,4 +1,5 @@
 import { DateshEntity } from "src/dates-h/entity/dates-h.entity";
+import { SolutionsEntity } from "src/solutions/entity/solutions.entity";
 import { StatusEntity } from "src/status/entity/status.entity";
 import { UsersEntity } from "src/users/entity/users.entity";
 import { Column, Entity, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
@@ -18,7 +19,8 @@ export class IncidentsEntity
     @Column({type:'bytea'})
     archivo:Buffer;
 
-    
+    @OneToMany(()=>SolutionsEntity,(solution)=>solution.incident,{nullable:true})
+    solution:SolutionsEntity[];
 
     @OneToMany(()=>DateshEntity,(dateh)=>dateh.incidents,{nullable:true})
     dateh:DateshEntity[];

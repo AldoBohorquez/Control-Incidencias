@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { IncidentsEntity } from "src/incidents/entity/indicents.entity";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('solutions')
 export class SolutionsEntity
@@ -15,4 +16,6 @@ export class SolutionsEntity
     @Column()
     fechaI:Date;
 
+    @ManyToOne(()=>IncidentsEntity,(incident)=>incident.solution,{nullable:true})
+    incident:IncidentsEntity;
 }
