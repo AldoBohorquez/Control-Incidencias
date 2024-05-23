@@ -11,13 +11,13 @@ export class IncidentsEntity
     @PrimaryGeneratedColumn()
     id_incident: number;
 
-    @Column({type: 'varchar', length: 60})
+    @Column({type: 'varchar', length: 60,unique:true})
     titulo:string;
 
     @Column({type:'varchar',length:300})
     descripcion:string;
 
-    @Column({type:'bytea'})
+    @Column({type:'bytea',nullable:true})
     archivo:Buffer;
 
     @OneToMany(()=>SolutionsEntity,(solution)=>solution.incident,{nullable:true})

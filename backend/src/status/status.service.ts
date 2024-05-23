@@ -11,7 +11,7 @@ export class StatusService {
     async getStatus()
     {
         try {
-            const statusFind = await this.dataSource.getRepository(StatusEntity).find();
+            const statusFind = await this.dataSource.getRepository(StatusEntity).find({relations:['incident']});
 
             if(!statusFind)
             {
@@ -29,7 +29,7 @@ export class StatusService {
     async getStatusId(id_status:number)
     {
         try {
-            const statusFind = await this.dataSource.getRepository(StatusEntity).findOne({where:{id_status:id_status}});
+            const statusFind = await this.dataSource.getRepository(StatusEntity).findOne({where:{id_status:id_status},relations:['incident']});
 
             if(!statusFind)
             {
