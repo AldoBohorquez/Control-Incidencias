@@ -19,7 +19,7 @@ export class TestsController {
         return await this.serviceTest.getTest(id)
     }
 
-    @Post()
+    @Post('createTest')
     async createTest(@Body() bodyTest:TestsDto)
     {
         return await this.serviceTest.createTest(bodyTest)
