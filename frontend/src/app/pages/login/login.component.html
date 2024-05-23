@@ -1,0 +1,84 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-5 col-md-6" style="height: 100%;">
+            <div class="formulario">
+
+                <div class="titulo">
+                    <img src="assets/img/SustentArte_Logo.png" alt="SustentArte Logo" class="imagen2" />
+                    <h4>Iniciar Sesión</h4>
+                </div>
+                <div class="container">
+                    <form action="#">
+                        <div class="row">
+                            <label for="inputName" class="col-sm-4 col-form-label">Correo</label>
+                            <div class="col-12">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-11">
+                                            <input [(ngModel)]="loginObj.EmailId" required="true" type="text"
+                                                class="form-control input" name="Email" id="inputName"
+                                                placeholder="Ingresa tu correo" />
+                                        </div>
+                                        <div class="col-1 mt-2">
+                                            <i class="fas fa-mail-bulk item"></i>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <div>
+                                <label for="inputName" class="col-sm-4 col-form-label">Contraseña</label>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-11">
+                                            <input [(ngModel)]="loginObj.Password" required="true" type="password"
+                                                class="form-control input" name="Password" id="inputName"
+                                                placeholder="Ingresa tu contraseña" />
+                                        </div>
+                                        <div class="col-1 mt-2">
+                                            <i class="fa fa-key item" aria-hidden="true"></i>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <div class="">
+                                <button (click)="onlogin()" class="btn btn-primary btn-custom2">Iniciar Sesión</button>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center align-items-center g-2">
+                            <div class="col-xxl-3 col-xl-2 col-lg-3 col-md-3 col-sm-3 col-xs-2 extra2">
+                                <hr>
+                            </div>
+                            <div class="col-xxl-6 col-xl-8 col-lg-6 col-md-6 col-sm-6 col-xs-8 extra">¿Ya tienes una
+                                cuenta?</div>
+                            <div class="col-xxl-3 col-xl-2 col-lg-3 col-md-3 col-sm-3 col-xs-2 extra2">
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <div class="">
+                                <a class="nav-link active" routerLinkActive="active" [routerLink]="['/register']"
+                                    aria-current="page">
+                                    <button onclick="" class="btn btn-primary btn-custom">Registrarse</button>
+                                    <span class="visually-hidden">(current)</span></a>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-lg-7 col-md-6 d-flex imagenCol" style="background-color: #F8CB97;">
+            <img src="assets/img/SustentArte_Logo.png" alt="SustentArte Logo" class="imagen" />
+        </div>
+    </div>
+</div>

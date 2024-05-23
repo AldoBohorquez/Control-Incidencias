@@ -1,0 +1,37 @@
+.bgColor {
+    background-color: #E58A56;
+    color: white;
+    height: max-content;
+}
+
+
+.logo {
+    width: 100px;
+    height: 70px;
+}
+
+.elementos {
+    margin-top: 1vh;
+}
+
+
+@media (max-width: 580px) {
+    .logo {
+        width: 100px;
+        height: 65px;
+    }
+}
+
+@media (max-height: 1770px) {
+    .bgColor {
+        height: 40px !important;
+    }
+}
+
+@media (max-height: 900px) {
+
+    .elementos {
+        margin-top: 11px;
+    }
+
+}
