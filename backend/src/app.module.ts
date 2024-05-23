@@ -9,6 +9,13 @@ import { StatusModule } from './status/status.module';
 import { SolutionsModule } from './solutions/solutions.module';
 import { TestsModule } from './tests/tests.module';
 import { DatesHModule } from './dates-h/dates-h.module';
+import { AdminEntity } from './admin/entity/admin.entity';
+import { DateshEntity } from './dates-h/entity/dates-h.entity';
+import { IncidentsEntity } from './incidents/entity/indicents.entity';
+import { SolutionsEntity } from './solutions/entity/solutions.entity';
+import { StatusEntity } from './status/entity/status.entity';
+import { TestsEntity } from './tests/entity/test.entity';
+import { UsersEntity } from './users/entity/users.entity';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -20,7 +27,7 @@ import { DatesHModule } from './dates-h/dates-h.module';
     database: "railway",
     synchronize: true,
     logging: true,
-    entities: [],
+    entities: [AdminEntity,DateshEntity,IncidentsEntity,SolutionsEntity,StatusEntity,TestsEntity,UsersEntity],
     subscribers: [],
     migrations: [],
   }), AdminModule, UsersModule, IncidentsModule, StatusModule, SolutionsModule, TestsModule, DatesHModule
