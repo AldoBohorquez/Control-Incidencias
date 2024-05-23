@@ -1,6 +1,7 @@
-import { IsString } from "class-validator";
+import { IsNumber, IsString } from "class-validator";
 
-export class AdminDto {
+export class UsersDto {
+
     @IsString()
     nombre: string;
     @IsString()
@@ -11,4 +12,8 @@ export class AdminDto {
     correo: string;
     @IsString()
     password: string;
+    @IsString()
+    area: string;
+    @IsString()
+    puesto: string;
 }
