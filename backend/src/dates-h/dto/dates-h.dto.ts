@@ -8,4 +8,6 @@ export class DateshDto {
     fechaF:Date;
     @IsString()
     estatus:string;
+    @IsNumber()
+    dateshId:number;
 }
