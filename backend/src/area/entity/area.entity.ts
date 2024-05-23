@@ -13,6 +13,6 @@ export class AreaEntity
     @Column({type:'varchar',length:300})
     descripcion:string;
 
-    @OneToMany(()=>IncidentsEntity,(status)=>status.status,{nullable:true})
+    @OneToMany(()=>IncidentsEntity,(incident)=>incident.area,{nullable:true})
     incident:IncidentsEntity[];
 }

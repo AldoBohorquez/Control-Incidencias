@@ -14,7 +14,7 @@ export class IncidentsService {
     async getIncidents()
     {
         try {
-            const incidentsFind = await this.dataSource.getRepository(IncidentsEntity).find({relations:['user','dateh','solution','status']});
+            const incidentsFind = await this.dataSource.getRepository(IncidentsEntity).find({relations:['user','dateh','solution','status','area']});
 
             if(!incidentsFind)
             {
@@ -32,7 +32,7 @@ export class IncidentsService {
     async getIncident(id_incident:number)
     {
         try {
-            const incidentFind = await this.dataSource.getRepository(IncidentsEntity).findOne({where:{id_incident:id_incident},relations:['users','dateh']});
+            const incidentFind = await this.dataSource.getRepository(IncidentsEntity).findOne({where:{id_incident:id_incident},relations:['user','dateh','solution','status','area']});
 
             if(!incidentFind)
             {
@@ -50,21 +50,21 @@ export class IncidentsService {
         try {
             const bodyIncident = this.dataSource.getRepository(IncidentsEntity).create(incident);
 
-            const userFind = await this.dataSource.getRepository(UsersEntity).findOne({where:{id_user:incident.userId}});
+            const userFind = await this.dataSource.getRepository(UsersEntity).findOne({where:{id_user:incident.userId},relations:['incidents']});
 
             if(!userFind)
             {
                 return new HttpException('No se encontro el usuario',HttpStatus.NOT_FOUND)
             }
 
-            const statusFind = await this.dataSource.getRepository(StatusEntity).findOne({where:{id_status:incident.statusId}});
+            const statusFind = await this.dataSource.getRepository(StatusEntity).findOne({where:{id_status:incident.statusId},relations:['incident']});
 
             if(!statusFind)
             {
                 return new HttpException('No se encontro el status',HttpStatus.NOT_FOUND)
             }
 
-            const areaFind = await this.dataSource.getRepository(AreaEntity).findOne({where:{id_area:incident.areaId}});
+            const areaFind = await this.dataSource.getRepository(AreaEntity).findOne({where:{id_area:incident.areaId},relations:['incident']});
 
             if(!areaFind)
             {
