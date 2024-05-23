@@ -4,6 +4,7 @@ import { IncidentsEntity } from './entity/indicents.entity';
 import { IncidentsDto } from './dto/incidents.dto';
 import { UsersEntity } from 'src/users/entity/users.entity';
 import { StatusEntity } from 'src/status/entity/status.entity';
+import { AreaEntity } from 'src/area/entity/area.entity';
 
 @Injectable()
 export class IncidentsService {
@@ -63,11 +64,22 @@ export class IncidentsService {
                 return new HttpException('No se encontro el status',HttpStatus.NOT_FOUND)
             }
 
+            const areaFind = await this.dataSource.getRepository(AreaEntity).findOne({where:{id_area:incident.areaId}});
+
+            if(!areaFind)
+            {
+                return new HttpException('No se encontro el area',HttpStatus.NOT_FOUND)
+            }
+
             const saveIncident = await this.dataSource.getRepository(IncidentsEntity).save(bodyIncident);
+
+            areaFind.incident.push(saveIncident);
 
             statusFind.incident.push(saveIncident);
 
             userFind.incidents.push(saveIncident);
+
+            await this.dataSource.getRepository(AreaEntity).save(areaFind);
 
             await this.dataSource.getRepository(UsersEntity).save(userFind);
 
