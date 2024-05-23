@@ -3,6 +3,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { UserPanelComponent } from './pages/user-panel/user-panel.component';
 import { UserAssignedComponent } from './pages/user-assigned/user-assigned.component';
+import { UserProgressComponent } from './pages/user-progress/user-progress.component';
 
 export const routes: Routes = [
     {
@@ -21,5 +22,8 @@ export const routes: Routes = [
         path:"userAssigned/:id",
         component:UserAssignedComponent
     },
-
+    {
+        path:"userProgress/:id",
+        component:UserProgressComponent
+    },
 ];
