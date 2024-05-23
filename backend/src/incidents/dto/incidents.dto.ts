@@ -12,5 +12,7 @@ export class IncidentsDto {
 
     @IsNumber()
     userId:number;
-    
+
+    @IsNumber()
+    statusId:number;
 }

@@ -3,6 +3,7 @@ import { DataSource } from 'typeorm';
 import { IncidentsEntity } from './entity/indicents.entity';
 import { IncidentsDto } from './dto/incidents.dto';
 import { UsersEntity } from 'src/users/entity/users.entity';
+import { StatusEntity } from 'src/status/entity/status.entity';
 
 @Injectable()
 export class IncidentsService {
@@ -53,6 +54,15 @@ export class IncidentsService {
                 return new HttpException('No se encontro el usuario',HttpStatus.NOT_FOUND)
             }
 
+            const statusFind = await this.dataSource.getRepository(StatusEntity).findOne({where:{id_status:incident.statusId}});
+
+            if(!statusFind)
+            {
+                return new HttpException('No se encontro el status',HttpStatus.NOT_FOUND)
+            }
+
+            bodyIncident.status = statusFind;
+
             const saveIncident = await this.dataSource.getRepository(IncidentsEntity).save(bodyIncident);
 
             userFind.incidents.push(saveIncident);
@@ -65,7 +75,37 @@ export class IncidentsService {
         }
     }
 
-    
+    async updateIncident(id_incident:number,incident:IncidentsDto)
+    {
+        try {
+            const incidentFind = await this.dataSource.getRepository(IncidentsEntity).findOne({where:{id_incident:id_incident}});
+
+            if(!incidentFind)
+            {
+                return new HttpException('No se encontro el incidente',HttpStatus.NOT_FOUND)
+            }
+
+            return await this.dataSource.getRepository(IncidentsEntity).update({id_incident:incidentFind.id_incident},incident);
+        } catch (error) {
+            throw new HttpException('Error al actualizar los datos',HttpStatus.BAD_REQUEST,error)
+        }
+    }
+
+    async deleteIncident(id_incident:number)
+    {
+        try {
+            const incidentFind = await this.dataSource.getRepository(IncidentsEntity).findOne({where:{id_incident:id_incident}});
+
+            if(!incidentFind)
+            {
+                return new HttpException('No se encontro el incidente',HttpStatus.NOT_FOUND)
+            }
+
+            return await this.dataSource.getRepository(IncidentsEntity).remove(incidentFind);
+        } catch (error) {
+            throw new HttpException('Error al eliminar los datos',HttpStatus.BAD_REQUEST,error)
+        }
+    }
 
 
 }

@@ -7,8 +7,11 @@ export class StatusEntity
     id_status: number;
 
     @Column({type: 'varchar', length: 60})
-    titulo:string;
+    nombre:string;
 
     @Column({type:'varchar',length:300})
     descripcion:string;
+
+    @Column({type:'integer'})
+    incidentId:number;
 }
