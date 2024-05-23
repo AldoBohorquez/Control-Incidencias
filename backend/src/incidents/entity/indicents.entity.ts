@@ -2,7 +2,7 @@ import { DateshEntity } from "src/dates-h/entity/dates-h.entity";
 import { SolutionsEntity } from "src/solutions/entity/solutions.entity";
 import { StatusEntity } from "src/status/entity/status.entity";
 import { UsersEntity } from "src/users/entity/users.entity";
-import { Column, Entity, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('incidents')
 export class IncidentsEntity
@@ -28,6 +28,6 @@ export class IncidentsEntity
     @ManyToOne(()=>UsersEntity,(user)=>user.incidents,{nullable:true})
     user:UsersEntity;
 
-    @OneToOne(()=>StatusEntity,(status)=>status.incidentId,{nullable:true})
+    @ManyToOne(()=>StatusEntity,(status)=>status.incident,{nullable:true})
     status:StatusEntity;
 }

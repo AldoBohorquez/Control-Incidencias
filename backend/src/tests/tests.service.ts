@@ -13,7 +13,7 @@ export class TestsService {
     async getTests()
     {
         try {
-            const testsFind = await this.dataSource.getRepository(TestsEntity).find({relations:['incident','solution']})
+            const testsFind = await this.dataSource.getRepository(TestsEntity).find({relations:['solution']})
             if (!testsFind) {
                 return new HttpException('No se encontro los tests',HttpStatus.NOT_FOUND)
             }
@@ -26,7 +26,7 @@ export class TestsService {
     async getTest(id:number)
     {
         try {
-            const testFind = await this.dataSource.getRepository(TestsEntity).findOne({where:{id_test:id},relations:['incident','solution']})
+            const testFind = await this.dataSource.getRepository(TestsEntity).findOne({where:{id_test:id},relations:['solution']})
             if (!testFind) {
                 return new HttpException('No se encontro el test',HttpStatus.NOT_FOUND)
             }

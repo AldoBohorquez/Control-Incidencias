@@ -13,7 +13,7 @@ export class IncidentsService {
     async getIncidents()
     {
         try {
-            const incidentsFind = await this.dataSource.getRepository(IncidentsEntity).find({relations:['users','dateh']});
+            const incidentsFind = await this.dataSource.getRepository(IncidentsEntity).find({relations:['user','dateh','solution','status']});
 
             if(!incidentsFind)
             {
@@ -22,7 +22,9 @@ export class IncidentsService {
 
             return incidentsFind;
         } catch (error) {
-            throw new HttpException('Error al consultar los datos',HttpStatus.BAD_REQUEST,error)
+            console.log(error);
+            
+            throw new HttpException('Error al consultar los datos',HttpStatus.BAD_REQUEST)
         }
     }
 
@@ -61,13 +63,15 @@ export class IncidentsService {
                 return new HttpException('No se encontro el status',HttpStatus.NOT_FOUND)
             }
 
-            bodyIncident.status = statusFind;
-
             const saveIncident = await this.dataSource.getRepository(IncidentsEntity).save(bodyIncident);
+
+            statusFind.incident.push(saveIncident);
 
             userFind.incidents.push(saveIncident);
 
             await this.dataSource.getRepository(UsersEntity).save(userFind);
+
+            await this.dataSource.getRepository(StatusEntity).save(statusFind);
 
             return await this.dataSource.getRepository(IncidentsEntity).save(saveIncident);
         } catch (error) {
