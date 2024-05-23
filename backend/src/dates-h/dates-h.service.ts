@@ -73,6 +73,4 @@ export class DatesHService {
             throw new HttpException('Error al eliminar los datos', HttpStatus.BAD_REQUEST,error)
         }
     }
-
-
 }
