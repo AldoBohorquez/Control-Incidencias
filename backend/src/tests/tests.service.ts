@@ -41,17 +41,8 @@ export class TestsService {
         try {
             const test = this.dataSource.getRepository(TestsEntity).create(bodyTest)
 
-            const solutionFind = await this.dataSource.getRepository(SolutionsEntity).findOne({where:{id_solution:test.id_test}})
-
-            if (!solutionFind) {
-                return new HttpException('No se encontro la solucion',HttpStatus.NOT_FOUND)
-            }
-
             const saveTest = await this.dataSource.getRepository(TestsEntity).save(test)
 
-            solutionFind.test.push(saveTest)
-
-            await this.dataSource.getRepository(SolutionsEntity).save(solutionFind)
             return saveTest
         } catch (error) {
             throw new HttpException('Error al crear el test',HttpStatus.BAD_REQUEST,error)

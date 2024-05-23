@@ -30,6 +30,7 @@ import { SolutionsService } from './solutions/solutions.service';
 import { StatusService } from './status/status.service';
 import { TestsService } from './tests/tests.service';
 import { UsersService } from './users/users.service';
+import { AreaModule } from './area/area.module';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -44,7 +45,7 @@ import { UsersService } from './users/users.service';
     entities: [AdminEntity,DateshEntity,IncidentsEntity,SolutionsEntity,StatusEntity,TestsEntity,UsersEntity],
     subscribers: [],
     migrations: [],
-  }), AdminModule, UsersModule, IncidentsModule, StatusModule, SolutionsModule, TestsModule, DatesHModule
+  }), AdminModule, UsersModule, IncidentsModule, StatusModule, SolutionsModule, TestsModule, DatesHModule, AreaModule
     ,],
   
   controllers: [AppController,AdminController,DatesHController,IncidentsController,SolutionsController,StatusController,TestsController,UsersController],
