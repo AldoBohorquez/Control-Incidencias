@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { IncidentsEntity } from "src/incidents/entity/indicents.entity";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('datesh')
 export class DateshEntity
@@ -15,5 +16,6 @@ export class DateshEntity
     @Column({type: 'varchar', length: 20})
     estatus: string;
 
-    
+    @ManyToOne(()=>IncidentsEntity,(incident) => incident.user)
+    incidents: IncidentsEntity;
 }
