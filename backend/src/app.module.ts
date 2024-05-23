@@ -34,11 +34,11 @@ import { UsersService } from './users/users.service';
 @Module({
   imports: [TypeOrmModule.forRoot({
     type: "postgres",
-    host: "monorail.proxy.rlwy.net",
+    host: "localhost",
     port: 5432,
     username: "postgres",
-    password: "DJOQBQPmzsJDIogcIImOrAfEEywGvUxV",
-    database: "railway",
+    password: "qwe",
+    database: "code",
     synchronize: true,
     logging: true,
     entities: [AdminEntity,DateshEntity,IncidentsEntity,SolutionsEntity,StatusEntity,TestsEntity,UsersEntity],

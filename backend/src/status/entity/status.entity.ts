@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { IncidentsEntity } from "src/incidents/entity/indicents.entity";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('status')
 export class StatusEntity
@@ -12,6 +13,6 @@ export class StatusEntity
     @Column({type:'varchar',length:300})
     descripcion:string;
 
-    @Column({type:'integer'})
-    incidentId:number;
+    @OneToMany(()=>IncidentsEntity,(status)=>status.status,{nullable:true})
+    incident:IncidentsEntity[];
 }
