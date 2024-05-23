@@ -1,9 +1,7 @@
 .bgColor {
-    background-color: #E58A56;
     color: white;
     height: max-content;
 }
-
 
 .logo {
     width: 100px;
@@ -13,7 +11,6 @@
 .elementos {
     margin-top: 1vh;
 }
-
 
 @media (max-width: 580px) {
     .logo {

@@ -1,0 +1,9 @@
+.card {
+    min-width: 200px;
+}
+
+.btn-bottom-right {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
