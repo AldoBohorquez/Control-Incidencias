@@ -1,5 +1,8 @@
+.contFull{
+    background: linear-gradient(to right,#2f6aea,#356ee9, #ffffff, #ffffff, #ffffff, #ffffff);
+}
 .formulario {
-    background-color: rgb(255, 255, 255);
+    background: linear-gradient(to right,#316BE8, #ffffff);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -61,7 +64,7 @@
   .btn-custom2 {
     background-color: #316BE8;
     color: #ffffff;
-    border-color: #ffffff;
+    border-color: #316BE8;
     width: 100%;
     margin: 0;
     margin-bottom: 10px;
@@ -87,7 +90,7 @@
   }
   
   /* Media queries */
-  @media (max-width: 1110px) {
+  @media (max-width: 770px) {
   
   
     .imagen{
