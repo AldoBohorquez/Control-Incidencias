@@ -12,4 +12,5 @@ export class IncidentsDto {
 
     @IsNumber()
     userId:number;
+    
 }

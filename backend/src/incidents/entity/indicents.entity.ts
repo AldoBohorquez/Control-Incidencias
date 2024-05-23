@@ -17,6 +17,8 @@ export class IncidentsEntity
     @Column({type:'bytea'})
     archivo:Buffer;
 
+    
+
     @OneToMany(()=>DateshEntity,(dateh)=>dateh.incidents,{nullable:true})
     dateh:DateshEntity[];
 
