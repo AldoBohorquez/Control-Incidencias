@@ -41,9 +41,36 @@ export class DatesHService {
                 return new HttpException('Error al consultar los datos', HttpStatus.NOT_FOUND)
             }
             const saveDatesh = await this.dataSource.getRepository(DateshEntity).save(bodyDatesh)
-            incidetsFind.dateh = saveD
+            
+            incidetsFind.dateh.push(saveDatesh)
+            await this.dataSource.getRepository(IncidentsEntity).save(incidetsFind)
+            return await this.dataSource.getRepository(DateshEntity).save(saveDatesh)
         }catch(error){
             throw new HttpException('Error al crear los datos', HttpStatus.BAD_REQUEST,error)
+        }
+    }
+
+    async updateDatesh(id_Dates_h:number,datesh:DateshDto){
+        try {
+            const dateshFind = await this.dataSource.getRepository(DateshEntity).findOne({where: {id_Dates_h:id_Dates_h}})
+            if(!dateshFind){
+                return new HttpException('Error al consultar los datos', HttpStatus.NOT_FOUND)
+            }
+        
+            return await this.dataSource.getRepository(DateshEntity).update({id_Dates_h:dateshFind.id_Dates_h},datesh)
+        }catch(error){
+            throw new HttpException('Error al actualizar los datos', HttpStatus.BAD_REQUEST,error)
+        }
+    }
+    async deleteDatesh(id_Dates_h:number){
+        try {
+            const dateshFind = await this.dataSource.getRepository(DateshEntity).findOne({where: {id_Dates_h:id_Dates_h}})
+            if(!dateshFind){
+                return new HttpException('Error al consultar los datos', HttpStatus.NOT_FOUND)
+            }
+            return await this.dataSource.getRepository(DateshEntity).remove(dateshFind)
+        }catch(error){
+            throw new HttpException('Error al eliminar los datos', HttpStatus.BAD_REQUEST,error)
         }
     }
 
