@@ -20,7 +20,7 @@ export class AdminService {
     async getAdmins()
     {
         try {
-            const adminsFind = await this.dataSource.getRepository(AdminEntity).find();
+            const adminsFind = await this.dataSource.getRepository(AdminEntity).find({select:['id_admin','nombre','apPat','apMat','correo']});
 
             if(!adminsFind)
             {
@@ -36,7 +36,7 @@ export class AdminService {
     async getAdmin(id_admin:number)
     {
         try {
-            const adminFind = await this.dataSource.getRepository(AdminEntity).findOne({where:{id_admin:id_admin}});
+            const adminFind = await this.dataSource.getRepository(AdminEntity).findOne({where:{id_admin:id_admin},select:['id_admin','nombre','apPat','apMat','correo']});
 
             if(!adminFind)
             {

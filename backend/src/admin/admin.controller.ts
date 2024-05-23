@@ -28,7 +28,7 @@ export class AdminController {
     @Post('login')
     loginAdmin(@Body() bodyAdmin:AdminDto)
     {
-        return this.serviceAdmin.loginAdmin(bodyAdmin.correo,bodyAdmin.contrasena);
+        return this.serviceAdmin.loginAdmin(bodyAdmin.correo,bodyAdmin.password);
     }
 
     @Put(':id')
