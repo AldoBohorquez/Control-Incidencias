@@ -46,15 +46,6 @@ export class UsersService {
     {
         try {
             const bodyUser = this.dataSource.getRepository(UsersEntity).create(user);
-
-            const findIncident = await this.dataSource.getRepository(IncidentsEntity).findOne({where:{id_incident:user.indicentId}});
-
-            if(!findIncident)
-            {
-                return new HttpException('No se encontro el incidente',HttpStatus.NOT_FOUND)
-            }
-
-            bodyUser.incidents.push(findIncident);
             
 
             return await this.dataSource.getRepository(UsersEntity).save(bodyUser);

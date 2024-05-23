@@ -16,7 +16,4 @@ export class UsersDto {
     area: string;
     @IsString()
     puesto: string;
-
-    @IsNumber()
-    indicentId: number;
 }
