@@ -11,14 +11,15 @@ export class IncidentsEntity
     @Column({type: 'varchar', length: 60})
     titulo:string;
 
-    @Column({type:'varchar',length:200})
+    @Column({type:'varchar',length:300})
     descripcion:string;
 
-    @Column()
+    @Column({type:'bytea'})
+    archivo:Buffer;
 
-    @OneToMany(()=>DateshEntity,(dateh)=>dateh.incident)
+    @OneToMany(()=>DateshEntity,(dateh)=>dateh.incidents,{nullable:true})
     dateh:DateshEntity[];
 
-    @ManyToOne(()=>UsersEntity,(user)=>user.incidents)
+    @ManyToOne(()=>UsersEntity,(user)=>user.incidents,{nullable:true})
     user:UsersEntity;
 }

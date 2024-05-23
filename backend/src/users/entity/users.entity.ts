@@ -28,6 +28,6 @@ export class UsersEntity
     @Column({type: 'varchar', length: 50})
     puesto:string;
 
-    @OneToMany(()=>IncidentsEntity,(incident)=>incident.user)
+    @OneToMany(()=>IncidentsEntity,(incident)=>incident.user,{nullable:true})
     incidents:IncidentsEntity[];
 }
