@@ -1,6 +1,6 @@
 .bgColor {
-    background-color: #E58A56;
-    color: white;
+    background-color: #316BE8;
+    color: rgb(255, 255, 255);
     height: max-content;
 }
 
@@ -13,6 +13,7 @@
 .elementos {
     margin-top: 1vh;
 }
+
 
 
 @media (max-width: 580px) {
