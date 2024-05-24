@@ -6,6 +6,7 @@ import { ActivatedRoute, Router, RouterModule, RouterOutlet } from '@angular/rou
 import { NavbarComponent } from '../../shared/navbar/navbar.component';
 import { ApiService } from '../../services/api.service';
 import { AuthService } from '../../services/auth/AuthService.service';
+import { users } from '../../interfaces/users.interfaces';
 
 @Component({
   selector: 'app-login',
@@ -41,13 +42,22 @@ export class LoginComponent {
 
     this.authService.login(user, this.selectedRole) // Pass selectedRole
       .subscribe({
-        next: (data) => {
-          console.log(data);
-
+        next: (data:users) => {          
           localStorage.setItem('token', "true");
           
           this.formUser.reset();
-          this.route.navigateByUrl('userPanel'); // Use Router for navigation
+          if(data.adminB == true)
+            {
+              this.route.navigate(['/adminPanel'], {
+                queryParams: { id: JSON.stringify(data.id_admin), adminB: JSON.stringify(data.adminB ?? false) }
+              });
+            }
+            else
+            {
+              this.route.navigate(['/userPanel'], {
+                queryParams: { id: JSON.stringify(data.id_admin), adminB: JSON.stringify(data.adminB ?? false) }
+              });
+            }
         },
         error: (err) => {
           console.error(err);
