@@ -2,12 +2,14 @@
     border: 1px solid rgba(8, 118, 192, 0.488); 
 }
 
-.soluciones{
+.borderNone {
+    border: none;
+    border-radius: 0%;
+    border-top: 2px solid rgba(8, 118, 192, 0.488); 
+}
+
+.soluciones {
     border-color: rgb(197, 194, 194);
     width: 100%;
     margin-bottom: 3%;
-}
-
-.botones{
-    width: 10vw !important;
 }
