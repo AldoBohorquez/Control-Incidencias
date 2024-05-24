@@ -1,9 +1,12 @@
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Injectable, inject } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class IncidentsService {
+
+  private http = inject(HttpClient);
 
   constructor() { }
 }
