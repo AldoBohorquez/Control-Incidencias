@@ -102,8 +102,7 @@ export class AdminService {
             
             console.log(correo);
             
-            const adminFind = await this.dataSource.getRepository(AdminEntity).query(`SELECT * FROM admin WHERE correo = '${correo}'`);
-
+            const adminFind = await this.dataSource.getRepository(AdminEntity).findOne({where:{correo:correo}});
             console.log(adminFind);
             
             if(!adminFind)

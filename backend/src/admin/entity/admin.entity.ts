@@ -18,7 +18,7 @@ export class AdminEntity
     @Column({type: 'varchar', length: 100})
     apMat: string;
 
-    @Column({type: 'varchar', length: 60,unique:true})
+    @Column({type: 'varchar', length: 60})
     correo: string;
 
     @Column({type: 'varchar', length: 80})

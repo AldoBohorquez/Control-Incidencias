@@ -1,6 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { AdminService } from './admin.service';
 import { AdminDto } from './dto/admin.dto';
+import { AdminLoginDto } from './dto/adminLogin.dto';
 
 @Controller('admin')
 export class AdminController {
@@ -26,8 +27,10 @@ export class AdminController {
     }
 
     @Post('login')
-    loginAdmin(@Body() bodyAdmin:AdminDto)
+    loginAdmin(@Body() bodyAdmin:AdminLoginDto)
     {
+        console.log(bodyAdmin);
+        
         return this.serviceAdmin.loginAdmin(bodyAdmin.correo,bodyAdmin.password);
     }
 

@@ -7,6 +7,7 @@ import { NavbarComponent } from '../../shared/navbar/navbar.component';
 import { ApiService } from '../../services/api.service';
 import { AuthService } from '../../services/auth/AuthService.service';
 import { users } from '../../interfaces/users.interfaces';
+import { usersLogin } from '../../interfaces/userLogin.interface';
 
 @Component({
   selector: 'app-login',
@@ -38,7 +39,7 @@ export class LoginComponent {
 
 
   loginUser() {
-    const user = this.formUser.value;
+    const user = this.formUser.value as usersLogin;
 
     console.log(user);
     
