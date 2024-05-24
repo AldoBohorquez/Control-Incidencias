@@ -22,12 +22,11 @@ export class LoginComponent {
 
   constructor(){
     this.formProducto = this.fb.group({
-      title:       ['',[Validators.required, Validators.minLength(5)]],
-      description: ['',[Validators.required, Validators.minLength(10)]],
-      price:       [, [Validators.required, Validators.min(1)]],
-      stock:       [,[Validators.required, Validators.min(1)]],
-      category:    [""],
-      img:         ['',Validators.required],
+      email:    ['',[Validators.required, Validators.minLength(1)]],
+      password: ['',[Validators.required, Validators.minLength(1)]],
     });
+  }
+  loginUser(){
+    
   }
 }
