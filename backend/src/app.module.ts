@@ -31,24 +31,28 @@ import { StatusService } from './status/status.service';
 import { TestsService } from './tests/tests.service';
 import { UsersService } from './users/users.service';
 import { AreaModule } from './area/area.module';
+import { AreaEntity } from './area/entity/area.entity';
+import { AreaController } from './area/area.controller';
+import { AreaService } from './area/area.service';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
     type: "postgres",
     host: "localhost",
+   
     port: 5432,
     username: "postgres",
-    password: "qwe",
-    database: "code",
+    password: "DJE20ben",
+    database: "CodeChallenge",
     synchronize: true,
     logging: true,
-    entities: [AdminEntity,DateshEntity,IncidentsEntity,SolutionsEntity,StatusEntity,TestsEntity,UsersEntity],
+    entities: [AdminEntity,DateshEntity,IncidentsEntity,SolutionsEntity,StatusEntity,TestsEntity,UsersEntity,AreaEntity],
     subscribers: [],
     migrations: [],
-  }), AdminModule, UsersModule, IncidentsModule, StatusModule, SolutionsModule, TestsModule, DatesHModule, AreaModule
+  }), AdminModule, UsersModule, IncidentsModule, StatusModule, SolutionsModule, TestsModule, DatesHModule, AreaModule,AreaModule
     ,],
   
-  controllers: [AppController,AdminController,DatesHController,IncidentsController,SolutionsController,StatusController,TestsController,UsersController],
-  providers: [AppService,AdminService,DatesHService,IncidentsService,SolutionsService,StatusService,TestsService,UsersService],
+  controllers: [AppController,AdminController,DatesHController,IncidentsController,SolutionsController,StatusController,TestsController,UsersController,AreaController],
+  providers: [AppService,AdminService,DatesHService,IncidentsService,SolutionsService,StatusService,TestsService,UsersService,AreaService],
 })
 export class AppModule {}
