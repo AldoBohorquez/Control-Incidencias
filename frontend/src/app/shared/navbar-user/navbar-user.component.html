@@ -10,9 +10,9 @@
                 </span>
                 <select class="form-select">
                     <option selected>Todos</option>
-                    <option value="1">Asignados</option>
-                    <option value="2">En curso</option>
-                    <option value="3">Finalizado</option>
+                    @for (st of status; track $index) {
+                    <option [value]="st.id_status">{{st.nombre}}</option>
+                    }
                 </select>
             </div>
         </div>
@@ -25,12 +25,12 @@
             </div>
         </div>
         <div class="col-lg-2 col-md-3 col-6 text-center mb-3">
-            <button type="button" class="btn btn-primary">NUEVA TAREA</button>
+            <a type="button" href="adminCreateUser" class="btn btn-primary">NUEVA TAREA</a>
         </div>
         <div class="col-lg-2 col-md-3 col-6 text-center mb-3">
-            <button type="button" class="btn btn-outline-primary">
+            <a type="button" href="login" class="btn btn-outline-primary">
                 Cerrar sesión
-            </button>
+            </a>
         </div>
     </div>
 </div>
