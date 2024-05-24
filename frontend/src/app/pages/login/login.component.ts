@@ -34,15 +34,16 @@ export class LoginComponent {
     });
   }
 
+
+
   loginUser() {
     const user = this.formUser.value;
 
     this.authService.login(user, this.selectedRole) // Pass selectedRole
       .subscribe({
         next: (data) => {
-          console.log('login');
-          
-          this.authService.isAth(true);
+          console.log(data);
+          this.authService.token = 'holaa'
           this.formUser.reset();
           this.route.navigateByUrl('userPanel'); // Use Router for navigation
         },

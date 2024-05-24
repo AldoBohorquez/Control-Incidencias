@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from '@angular/router';
+import { Router } from '@angular/router';
 import { Observable, tap } from 'rxjs';
 
 @Injectable({
@@ -13,20 +13,9 @@ export class AuthService {
 
   private router = inject(Router);
 
-  token= false;
+  token = "ffsdfs"
 
   constructor(private http: HttpClient) { }
-  
-  isAth(): boolean {
-    const token = localStorage.getItem('access_token');
-    // Additional logic to check for valid JWT (e.g., expiry)
-    return !!token; // Check if token exists and is truthy
-  }
-
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    const authService = inject(AuthService);
-    return authService.isAth();
-  }
 
   login(user: any, role: boolean): Observable<any> {
 
@@ -38,4 +27,8 @@ export class AuthService {
     }
   }
 
+  isAuth()
+  {
+    return this.token.length > 0;
+  }
 }

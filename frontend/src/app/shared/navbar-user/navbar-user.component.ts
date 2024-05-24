@@ -29,8 +29,7 @@ export class NavbarUserComponent {
 
 
   logout() {
-    console.log('Logout');
-    this.authService.isAth(false);
+    this.authService.token = '';
     this.router.navigateByUrl('login');
   }
 }
