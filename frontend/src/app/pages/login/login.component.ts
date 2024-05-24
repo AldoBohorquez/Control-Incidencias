@@ -28,8 +28,4 @@ export class LoginComponent {
       password: ['',[Validators.required, Validators.minLength(1)]],
     });
   }
-  loginUser(){
-    console.log(this.formUser);
-    this.
-  }
 }

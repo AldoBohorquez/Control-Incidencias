@@ -7,6 +7,7 @@ import { UserProgressComponent } from './pages/user-progress/user-progress.compo
 import { UserCreateComponent } from './pages/user-create/user-create.component';
 import { UserFinishedComponent } from './pages/user-finished/user-finished.component';
 import { AdminListComponent } from './pages/admin-list/admin-list.component';
+import { AdminListUserComponent } from './pages/admin-list-user/admin-list-user.component';
 
 export const routes: Routes = [
     {
@@ -40,6 +41,10 @@ export const routes: Routes = [
     {
         path:"adminList",
         component:AdminListComponent
+    },
+    {
+        path:"adminListUser",
+        component:AdminListUserComponent
     },
     {
         path : '**',
