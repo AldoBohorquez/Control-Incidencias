@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, effect, inject } from '@angular/core';
 import { NavbarUserComponent } from '../../shared/navbar-user/navbar-user.component';
+import { IncidentsService } from '../../services/incidents.service';
+import { Incidents } from '../../interfaces/incidents.interface';
 
 @Component({
   selector: 'app-user-panel',
@@ -9,5 +11,17 @@ import { NavbarUserComponent } from '../../shared/navbar-user/navbar-user.compon
   styleUrl: './user-panel.component.css'
 })
 export class UserPanelComponent {
+
+  private serviceIncidents = inject(IncidentsService)
+
+  incidents = Array<Incidents>();
+  
+  constructor() {
+    effect(()=>
+    {
+      this.incidents = this.serviceIncidents.incidents();
+    })
+  }
+
 
 }

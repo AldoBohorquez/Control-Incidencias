@@ -14,7 +14,7 @@ export class IncidentsService {
     async getIncidents()
     {
         try {
-            const incidentsFind = await this.dataSource.getRepository(IncidentsEntity).find({relations:['user','dateh','solution','status','area']});
+            const incidentsFind = await this.dataSource.getRepository(IncidentsEntity).find();
 
             if(!incidentsFind)
             {
@@ -32,7 +32,7 @@ export class IncidentsService {
     async getIncident(id_incident:number)
     {
         try {
-            const incidentFind = await this.dataSource.getRepository(IncidentsEntity).findOne({where:{id_incident:id_incident},relations:['user','dateh','solution','status','area']});
+            const incidentFind = await this.dataSource.getRepository(IncidentsEntity).findOne({where:{id_incident:id_incident}});
 
             if(!incidentFind)
             {

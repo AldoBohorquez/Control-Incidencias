@@ -32,7 +32,7 @@ export class IncidentsService {
   async getIncidents()
   {
 
-    this.http.get<Array<Incidents>>('http://localhost:3000/incidents').pipe(
+    this.http.get<Array<Incidents>>('http://localhost:3000/incidents',{ headers: { 'Access-Control-Allow-Origin': '*' } }).pipe(
       catchError((error)=>{
         console.log(error);
         return [];

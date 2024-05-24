@@ -2,14 +2,9 @@ export interface Incidents {
 
     titulo:string;
 
+    userAsignated:string;
+
     descripcion:string;
 
-    archivos:Buffer
-
-    userId:number;
-
-    statusId:number;
-
-    areaId:number;
 
 }
