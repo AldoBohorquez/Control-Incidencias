@@ -8,7 +8,6 @@ export class SolutionsDto
     desc:string;
     @IsDate()
     fechaI:Date;
-
     @IsNumber()
     incidentId:number;
 }

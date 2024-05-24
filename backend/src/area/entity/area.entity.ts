@@ -1,11 +1,11 @@
 import { IncidentsEntity } from "src/incidents/entity/indicents.entity";
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity('status')
-export class StatusEntity
+@Entity('area')
+export class AreaEntity
 {
     @PrimaryGeneratedColumn()
-    id_status: number;
+    id_area: number;
 
     @Column({type: 'varchar', length: 60})
     nombre:string;

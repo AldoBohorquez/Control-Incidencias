@@ -4,7 +4,15 @@
             <div class="card position-relative">
                 <div class="card-body borderBlue">
                     <div>
-                        <h2>Titulo</h2>
+                        <h2 class="tituloIncidencia">Titulo</h2>
+                        <div class="row mt-3 mb-3">
+                            <div class="col text-end">
+                                <label class="mb-2 mt-3 float-start">Pruebas:</label>
+                                <a href="ruta/a/tu/archivo.txt" class="btn btn-primary float-start" download="archivo.txt">
+                                    Descargar Archivo
+                                </a>
+                            </div>
+                        </div>
                         <p>Descripción: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                             Sed nec semper velit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
                             posuere cubilia Curae;
@@ -16,7 +24,7 @@
                         <div class="mb-3">
                             <textarea rows="4" class="form-control borderBlue"
                                 placeholder="Ingrese los pasos de la solución: "></textarea>
-                            <button type="button" class="btn borderBlue float-end mt-3">Agregar</button>
+                            <button type="button" class="btn botones float-end mt-3">Agregar</button>
                         </div>
                     </div>
                 </div>
@@ -24,16 +32,32 @@
         </div>
         <div class="col-lg-8 mb-5">
             <h3>Historial</h3>
-            <p class="d-inline-flex gap-1">
-                <a class="btn btn-primary" data-bs-toggle="collapse" role="button"
-                    aria-expanded="false" aria-controls="collapseExample">
-                    Link with href
-                </a>
-            </p>
-            <div class="collapse" id="collapseExample">
-                <div class="card card-body">
-                    Some placeholder content for the collapse component. This panel is hidden by default but revealed
-                    when the user activates the relevant trigger.
+            <div class="card position-relative">
+                <div class="card-body borderBlue">
+                    <div>
+                        <div class="historial m-3">
+                            <p>
+                                <a class="btn soluciones" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+                                    aria-controls="collapseExample">
+                                    Solución X <i class="fas fa-sort-down float-end"></i>
+                                </a>
+                            </p>
+                            <div class="collapse" id="collapseExample">
+                                <div class="card card-body">
+                                    Some placeholder content for the collapse component. This panel is hidden by default but revealed when the
+                                    user activates the relevant trigger
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons mt-3">
+                <div class="row justify-content-between align-items-between g-2">
+                    <div class="col text-center">
+                        <a name="" id="" class="btn btn-primary" href="userPanel" role="button">Regresar</a>
+                    </div>
                 </div>
             </div>
         </div>

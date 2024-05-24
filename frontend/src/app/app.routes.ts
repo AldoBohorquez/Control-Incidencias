@@ -23,6 +23,11 @@ export const routes: Routes = [
         component:UserAssignedComponent
     },
     {
+        path : '**',
+        pathMatch : 'full',
+        redirectTo : 'home'
+    },
+    {
         path:"userProgress/:id",
         component:UserProgressComponent
     },

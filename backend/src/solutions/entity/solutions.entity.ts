@@ -1,5 +1,6 @@
 import { IncidentsEntity } from "src/incidents/entity/indicents.entity";
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { TestsEntity } from "src/tests/entity/test.entity";
+import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('solutions')
 export class SolutionsEntity
@@ -18,4 +19,7 @@ export class SolutionsEntity
 
     @ManyToOne(()=>IncidentsEntity,(incident)=>incident.solution,{nullable:true})
     incident:IncidentsEntity;
+
+    @OneToMany(()=>TestsEntity,(test)=>test.solution,{nullable:true})
+    test:TestsEntity[];
 }
