@@ -1,1 +1,65 @@
-<p>user-progress works!</p>
+<div class="container mt-3">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 mb-5">
+            <div class="card position-relative">
+                <div class="card-body borderBlue">
+                    <div>
+                        <h2 class="tituloIncidencia">Titulo</h2>
+                        <p>Descripción: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Sed nec semper velit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+                            posuere cubilia Curae;
+                            Integer sagittis justo nec odio luctus, sed aliquam nulla feugiat.
+                        </p>
+                        <div class="row mt-3 mb-3">
+                            <div class="col text-end">
+                                <label class="me-4 mt-2 float-start">Archivo adjunto:</label>
+                                <a href="ruta/a/tu/archivo.txt" class="btn btn-primary float-start" download="archivo.txt">
+                                    Descargar Archivo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="mb-2 mt-3">Pruebas:</label>
+                        <div class="mb-3">
+                            <textarea rows="4" class="form-control borderBlue"
+                                placeholder="Ingrese los pasos de la solución: "></textarea>
+                            <button type="button" class="btn botones float-end mt-3">Agregar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 mb-5">
+            <h3>Historial</h3>
+            <div class="card position-relative borderNone">
+                <div class="card-body">
+                    <div>
+                        <div class="historial m-3">
+                            <p>
+                                <a class="btn soluciones text-start" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+                                    aria-controls="collapseExample">
+                                    Solución X <i class="fas fa-sort-down float-end"></i>
+                                </a>
+                            </p>
+                            <div class="collapse" id="collapseExample">
+                                <div class="card card-body">
+                                    Some placeholder content for the collapse component. This panel is hidden by default but revealed when the
+                                    user activates the relevant trigger
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons mt-3">
+                <div class="row justify-content-between align-items-between g-2">
+                    <div class="col text-center">
+                        <a name="" id="" class="btn btn-primary" href="userPanel" role="button">Regresar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
