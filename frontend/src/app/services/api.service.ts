@@ -19,4 +19,8 @@ export class ApiService {
     }
     
   }
+
+  listUsers(){
+    return this.http.get<any>(this.urlApi+'users',{ headers: { 'Access-Control-Allow-Origin': '*' } });
+  }
 }
