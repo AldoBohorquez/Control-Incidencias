@@ -1,6 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { IncidentsService } from './incidents.service';
 import { IncidentsDto } from './dto/incidents.dto';
+import { IncidentsAsignedDto } from './dto/incidentsAsigned.dto';
 
 @Controller('incidents')
 export class IncidentsController {
@@ -23,6 +24,12 @@ export class IncidentsController {
     createIncident(@Body() bodyIncident:IncidentsDto)
     {
         return this.serviceIncident.createIncident(bodyIncident);
+    }
+
+    @Post('asigned')
+    asignedIncident(@Body() bodyIncident:IncidentsAsignedDto)
+    {
+        return this.serviceIncident.updateUserAsignated(bodyIncident.id_incident,bodyIncident.userId);
     }
 
     @Put(':id')
