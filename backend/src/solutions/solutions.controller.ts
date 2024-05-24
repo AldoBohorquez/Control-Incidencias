@@ -19,7 +19,7 @@ export class SolutionsController {
         return await this.serviceSolutions.getSolution(id)
     }
 
-    @Post()
+    @Post('crearSolution')
     async createSolution(@Body() bodySolution:SolutionsDto)
     {
         return await this.serviceSolutions.createSolution(bodySolution)
