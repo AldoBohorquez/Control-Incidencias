@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { Router, RouterModule, RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
+import { ActivatedRoute, Router, RouterModule, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from '../../shared/navbar/navbar.component';
 
 @Component({
@@ -13,40 +13,21 @@ import { NavbarComponent } from '../../shared/navbar/navbar.component';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  email:string ="cruzfabianhiram@gmail.com";
-  pwd:string ="12345";
-  onlogin(){
-    if(this.loginObj.EmailId===this.email && this.loginObj.Password===this.pwd){
-      alert(this.loginObj.EmailId+" "+ this.loginObj.Password);
-    }
-    else{
-      alert("Revisa tus credenciales");
-    }
-  }
+  isNew = true;
+  id = 0;
+  fb = inject(FormBuilder);
+  activeRoute = inject(ActivatedRoute)
+  route = inject(Router);
+  formProducto !: FormGroup;
 
-loginObj: Login;
-
-  constructor( private http: HttpClient, private router: Router){
-    this.loginObj= new Login();
-  }/*
-  onlogin(){
-    this.http.post('https://freeapi.miniprojectideas.com/api/User/Login',this.loginObj).subscribe((res : any)=>{
-      if(res.result){
-        alert("Inicio de sesion correcta");
-        this.router.navigateByUrl('/panelAdmin')
-      }else{
-        alert("res.message");
-      }
-    });
-  }*/
-}
-
-export class Login
-{
-  EmailId: string;
-  Password: string;
   constructor(){
-    this.EmailId = '';
-    this.Password = '';
+    this.formProducto = this.fb.group({
+      title:       ['',[Validators.required, Validators.minLength(5)]],
+      description: ['',[Validators.required, Validators.minLength(10)]],
+      price:       [, [Validators.required, Validators.min(1)]],
+      stock:       [,[Validators.required, Validators.min(1)]],
+      category:    [""],
+      img:         ['',Validators.required],
+    });
   }
 }

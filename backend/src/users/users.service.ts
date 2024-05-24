@@ -148,7 +148,7 @@ export class UsersService {
                     return new HttpException('Contraseña incorrecta',HttpStatus.BAD_REQUEST)
                 }
 
-                return {id:adminFind.id_admin,nombre:adminFind.nombre,apPat:adminFind.apPat,apMat:adminFind.apMat,correo:adminFind.correo}
+                return {id:adminFind.id_admin,nombre:adminFind.nombre,apPat:adminFind.apPat,apMat:adminFind.apMat,correo:adminFind.correo, adminB:adminFind.adminB}
             }
 
             return new HttpException('Error al iniciar sesion',HttpStatus.BAD_REQUEST)
