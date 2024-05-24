@@ -40,7 +40,7 @@ export class SolutionsService {
         try {
             const solution = this.dataSource.getRepository(SolutionsEntity).create(bodySolution)
 
-            const incidentFind = await this.dataSource.getRepository(IncidentsEntity).findOne({where:{id_incident:solution.id_solution}})
+            const incidentFind = await this.dataSource.getRepository(IncidentsEntity).findOne({where:{id_incident:solution.id_solution},relations:['solution']})
             if (!incidentFind) {
                 return new HttpException('No se encontro el incidente',HttpStatus.NOT_FOUND)
             }
