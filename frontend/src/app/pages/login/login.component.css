@@ -2,7 +2,7 @@
     background: linear-gradient(to right,#2f6aea,#356ee9, #ffffff, #ffffff, #ffffff, #ffffff);
 }
 .formulario {
-    background: linear-gradient(to right,#316BE8, #ffffff);
+    background: linear-gradient(to right,#316BE8,#638fed,#9ab5f0,#aec5f7, #ffffff);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -33,6 +33,7 @@
   .input {
     border-radius: 5px;
     border-color: #316BE8;
+    min-width: 25vw !important; 
   }
   
   .icon {
@@ -51,16 +52,6 @@
     height: auto; /* Permite que la altura de la imagen se ajuste automáticamente */
   }
   
-  .btn-custom {
-    background-color: white;
-    color: #316BE8;
-    border-color: #316BE8;
-    width: 100%;
-    margin: 0;
-    margin-bottom: 10px;
-    margin-top: 3vh;
-  }
-  
   .btn-custom2 {
     background-color: #316BE8;
     color: #ffffff;
@@ -68,15 +59,10 @@
     width: 100%;
     margin: 0;
     margin-bottom: 10px;
+    max-width: 28vw !important;
   }
   
   .btn-custom2:hover {
-    color: #fff;
-    background-color: #98B5F3;
-    border-color: #98B5F3;
-  }
-  
-  .btn-custom:hover {
     color: #fff;
     background-color: #98B5F3;
     border-color: #98B5F3;
