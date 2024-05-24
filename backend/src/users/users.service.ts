@@ -74,11 +74,13 @@ export class UsersService {
     {
         try {
             const userFind = await this.dataSource.getRepository(UsersEntity).findOne({where:{id_user:id_user}});
-
+            
             if(!userFind)
             {
                 return new HttpException('No se encontro el usuario',HttpStatus.NOT_FOUND)
             }
+
+
 
             return await this.dataSource.getRepository(UsersEntity).remove(userFind);
         } catch (error) {

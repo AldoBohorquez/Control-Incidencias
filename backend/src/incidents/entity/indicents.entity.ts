@@ -14,6 +14,9 @@ export class IncidentsEntity
     @Column({type: 'varchar', length: 60,unique:true})
     titulo:string;
 
+    @Column({type: 'json', length: 60})
+    userAsignated:UsersEntity;
+
     @Column({type:'varchar',length:300})
     descripcion:string;
 
