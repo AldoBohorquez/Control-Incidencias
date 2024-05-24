@@ -6,6 +6,7 @@ import { UserAssignedComponent } from './pages/user-assigned/user-assigned.compo
 import { UserProgressComponent } from './pages/user-progress/user-progress.component';
 import { UserCreateComponent } from './pages/user-create/user-create.component';
 import { UserFinishedComponent } from './pages/user-finished/user-finished.component';
+import { AdminListComponent } from './pages/admin-list/admin-list.component';
 
 export const routes: Routes = [
     {
@@ -29,16 +30,20 @@ export const routes: Routes = [
         component:UserAssignedComponent
     },
     {
-        path : '**',
-        pathMatch : 'full',
-        redirectTo : 'home'
-    },
-    {
         path:"userProgress/:id",
         component:UserProgressComponent
     },
     {
         path:"userFinished/:id",
         component:UserFinishedComponent
-    }
+    },
+    {
+        path:"adminList",
+        component:AdminListComponent
+    },
+    {
+        path : '**',
+        pathMatch : 'full',
+        redirectTo : 'home'
+    },
 ];
