@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DownloadService } from '../../services/download.service';
 
 @Component({
   selector: 'app-user-assigned',
@@ -8,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrl: './user-assigned.component.css'
 })
 export class UserAssignedComponent {
-
+  constructor(){}
 }

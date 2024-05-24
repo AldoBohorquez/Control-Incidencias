@@ -3,15 +3,22 @@
         <div class="col-lg-8">
             <div class="card">
                 <div class="card-body">
-                    
                     <div class="incidencia m-2">
                         <h2 class="tituloIncidencia">Aquí va el título de la incidencia</h2>
                         <p class="descripcionIncidencia">Descripción: "Aquí va la descripción de la incidencia"</p>
                     </div>
 
+                    <!-- Botón de descarga de archivo -->
+                    <div class="row txtAreas m-2">
+                        <div class="col text-end">
+                            <button (click)="downloadFile()" class="btn btn-secondary">Descargar Archivo</button>
+                        </div>
+                    </div>
+
                     <div class="row txtAreas m-2">
                         <div class="col">
-                            <textarea name="solucion" id="solucion" class="form-control" placeholder="Describe la solución"></textarea>
+                            <textarea name="solucion" id="solucion" class="form-control"
+                                placeholder="Describe la solución"></textarea>
                         </div>
                     </div>
                     <div class="row txtAreas m-2">
@@ -19,10 +26,11 @@
                             <button type="button" class="btn mt-2 mb-2 botones float-end">Agregar</button>
                         </div>
                     </div>
-                        
+
                     <div class="row txtAreas m-2">
                         <div class="col">
-                            <textarea name="prueba" id="prueba" class="form-control" placeholder="Describe la prueba"></textarea>
+                            <textarea name="prueba" id="prueba" class="form-control"
+                                placeholder="Describe la prueba"></textarea>
                         </div>
                     </div>
                     <div class="row txtAreas m-2">
@@ -33,17 +41,17 @@
 
                     <div class="historial m-3">
                         <p>
-                            <a class="btn soluciones" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
-                                aria-controls="collapseExample">
+                            <a class="btn soluciones" data-bs-toggle="collapse" href="#collapseExample" role="button"
+                                aria-expanded="false" aria-controls="collapseExample">
                                 Solución X
                             </a>
                         </p>
                         <div class="collapse" id="collapseExample">
                             <div class="card card-body">
-                                Some placeholder content for the collapse component. This panel is hidden by default but revealed when the
+                                Some placeholder content for the collapse component. This panel is hidden by default but
+                                revealed when the
                                 user activates the relevant trigger
                             </div>
-                            
                         </div>
                     </div>
 
@@ -54,7 +62,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
