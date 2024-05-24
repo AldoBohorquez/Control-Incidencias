@@ -8,7 +8,7 @@
                     <h4>Iniciar Sesión</h4>
                 </div>
                 <div class="container flu">
-                    <form [formGroup]="formUser" (ngSubmit)="loginUser()">
+                    <form [formGroup]="formUser" (ngSubmit)="login()">
                         <div class="row">
                             <label for="inputName" class="col-sm-4 col-form-label">Correo</label>
                             <div class="col-12">
@@ -16,8 +16,8 @@
                                     <div class="row">
                                         <div class="col">
                                             <input  required="true" type="text"
-                                                class="form-control input" name="Email" id="inputName"
-                                                placeholder="Ingresa tu correo" />
+                                                class="form-control input" name="email" id="inputName"
+                                                placeholder="Ingresa tu correo" formControlName="email" />
                                         </div>
                                         <div class="col mt-2">
                                             <i class="fas fa-mail-bulk item"></i>
@@ -38,7 +38,7 @@
                                         <div class="col">
                                             <input  required="true" type="password"
                                                 class="form-control input" name="Password" id="inputName"
-                                                placeholder="Ingresa tu contraseña" />
+                                                placeholder="Ingresa tu contraseña" formControlName="password"/>
                                         </div>
                                         <div class="col mt-2">
                                             <i class="fa fa-key item" aria-hidden="true"></i>

@@ -22,8 +22,8 @@ export class LoginComponent {
 
   constructor() {
     this.formUser = this.fb.group({
-      email: ['',[Validators.required, Validators.minLength(1)]],
-      password: ['',[Validators.required, Validators.minLength(1)]],
+      email: ['',[]],
+      password: ['',[]],
     });
   }
 
@@ -39,5 +39,11 @@ export class LoginComponent {
         console.error(err);
       }
     });
+  }
+
+  login(){
+    const user:any = this.formUser.value as any;
+    console.log(user);
+    
   }
 }
