@@ -1,6 +1,7 @@
-import { IsString } from "class-validator";
+import { IsBoolean, IsString } from "class-validator";
 
 export class AdminDto {
+
     @IsString()
     nombre: string;
     @IsString()

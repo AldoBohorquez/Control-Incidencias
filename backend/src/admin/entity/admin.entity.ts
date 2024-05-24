@@ -9,6 +9,9 @@ export class AdminEntity
     @Column({type: 'varchar', length: 100})
     nombre: string;
 
+    @Column({type:'boolean',default:true,nullable:false})
+    adminB:boolean;
+
     @Column({type: 'varchar', length: 100})
     apPat: string;
 
