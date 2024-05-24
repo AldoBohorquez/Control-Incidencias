@@ -40,13 +40,15 @@ export class LoginComponent {
   loginUser() {
     const user = this.formUser.value;
 
+    console.log(user);
+    
     this.authService.login(user, this.selectedRole) // Pass selectedRole
       .subscribe({
         next: (data:users) => {          
-          localStorage.setItem('token', "true");
           console.log(data);
           
           this.formUser.reset();
+          localStorage.setItem('token', "true");
           if(this.role)
             {
               this.route.navigate(['/adminList'], {

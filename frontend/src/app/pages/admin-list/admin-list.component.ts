@@ -39,7 +39,7 @@ export class AdminListComponent {
 
   getUsers() {
     
-    const area = (<HTMLSelectElement>document.getElementById('area')).value;
+    const area = (<HTMLSelectElement>document.getElementById('2')).value;
     console.log(area);
     
     this.serviceUsers.getUsers(area);

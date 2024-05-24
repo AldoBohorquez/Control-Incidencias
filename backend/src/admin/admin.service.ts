@@ -2,6 +2,7 @@ import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { DataSource } from 'typeorm';
 import { AdminEntity } from './entity/admin.entity';
 import { AdminDto } from './dto/admin.dto';
+import { AdminLoginDto } from './dto/adminLogin.dto';
 
 @Injectable()
 export class AdminService {
@@ -95,18 +96,23 @@ export class AdminService {
         }
     }
 
-    async loginAdmin(correo:string,contrasena:string)
+    async loginAdmin(correo:string,password:string)
     {
         try {
-            const adminFind = await this.dataSource.getRepository(AdminEntity).findOne({where:{correo:correo}});
+            
+            console.log(correo);
+            
+            const adminFind = await this.dataSource.getRepository(AdminEntity).query(`SELECT * FROM admin WHERE correo = '${correo}'`);
 
+            console.log(adminFind);
+            
             if(!adminFind)
             {
                 return new HttpException('No se encontro el administrador',HttpStatus.NOT_FOUND)
             }
 
             const bcrypt = require('bcrypt');
-            const match = await bcrypt.compare(contrasena,adminFind.password);
+            const match = await bcrypt.compare(password,adminFind.password);
 
             if(!match)
             {

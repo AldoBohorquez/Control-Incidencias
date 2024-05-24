@@ -49,7 +49,7 @@
                 <label class="ms-2">Área:</label>
                 <select class="form-select">
                     @for (ar of areas; track $index) {
-                        <option id="area" selected>{{ar.nombre}}</option>
+                        <option [id]="ar.id_area" selected>{{ar.nombre}}</option>
                     }
                 </select>
                 <button type="button" (click)="getUsers()" class="btn btn-primary btn-sm mt-2 float-end ">Buscar</button>

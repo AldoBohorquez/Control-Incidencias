@@ -10,9 +10,9 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  loginUser(user: any): Observable<any> {
+  loginUser(user: any,role:boolean): Observable<any> {
     console.log(user);
-    if(user?.role===1){
+    if(role){
       return this.http.post<any>(this.urlApi + 'admin/login', user, { headers: { 'Access-Control-Allow-Origin': '*' } });
     }else{
       return this.http.post<any>(this.urlApi + 'user/login', user, { headers: { 'Access-Control-Allow-Origin': '*' } });
