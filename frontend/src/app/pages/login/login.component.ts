@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { ActivatedRoute, Router, RouterModule, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from '../../shared/navbar/navbar.component';
 import { ApiService } from '../../services/api.service';
+import { AuthService } from '../../services/auth/AuthService.service';
 
 @Component({
   selector: 'app-login',
@@ -14,6 +15,8 @@ import { ApiService } from '../../services/api.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+
+  authService = inject(AuthService);
   fb = inject(FormBuilder);
   activeRoute = inject(ActivatedRoute);
   route = inject(Router);
@@ -28,10 +31,9 @@ export class LoginComponent {
   }
 
   loginUser() {
-    console.log(this.formUser.value);
     this.apiS.loginUser(this.formUser.value).subscribe({
       next: (data) => {
-        console.log(data);
+        this.authService.login(data); // Call AuthService login method
         this.formUser.reset();
         this.route.navigateByUrl('userPanel');
       },
@@ -40,6 +42,7 @@ export class LoginComponent {
       }
     });
   }
+  
 
   login(){
     const user:any = this.formUser.value as any;
