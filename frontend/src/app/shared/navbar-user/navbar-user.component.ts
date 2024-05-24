@@ -26,10 +26,8 @@ export class NavbarUserComponent {
         this.status = this.statusServer.status();
       })
   }
-
-
   logout() {
-    this.authService.token = '';
+    localStorage.removeItem('token'); 
     this.router.navigateByUrl('login');
   }
 }

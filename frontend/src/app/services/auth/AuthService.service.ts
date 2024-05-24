@@ -13,7 +13,8 @@ export class AuthService {
 
   private router = inject(Router);
 
-  token = "ffsdfs"
+  token = ""
+
 
   constructor(private http: HttpClient) { }
 
@@ -27,8 +28,10 @@ export class AuthService {
     }
   }
 
-  isAuth()
+  isAuth() 
   {
+    this.token = localStorage.getItem('token') || '';
     return this.token.length > 0;
+    // Check if token exists in local storage
   }
 }

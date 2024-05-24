@@ -43,7 +43,9 @@ export class LoginComponent {
       .subscribe({
         next: (data) => {
           console.log(data);
-          this.authService.token = 'holaa'
+
+          localStorage.setItem('token', "true");
+          
           this.formUser.reset();
           this.route.navigateByUrl('userPanel'); // Use Router for navigation
         },

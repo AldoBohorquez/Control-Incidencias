@@ -29,34 +29,41 @@ export const routes: Routes = [
   {
     path: 'userAssigned/:id',
     component: UserAssignedComponent,
+    canActivate: [authGuardMatch],
   },
   {
     path: 'userProgress/:id',
     component: UserProgressComponent,
+    canActivate: [authGuardMatch],
   },
   {
     path: 'userFinished/:id',
     component: UserFinishedComponent,
+    canActivate: [authGuardMatch],
   },
   {
     path: 'adminList',
     component: AdminListComponent,
+    canActivate: [authGuardMatch],
   },
   {
     path: 'adminListUser',
     component: AdminListUserComponent,
+    canActivate: [authGuardMatch],
   },
   {
     path: 'userCreateTarea',
     component: UserCreateTareaComponent,
+    canActivate: [authGuardMatch],
   },
   {
     path: 'adminCreateUser',
     component: AdminCreateUserComponent,
+    canActivate: [authGuardMatch],
   },
   {
     path: '**',
     pathMatch: 'full',
-    redirectTo: 'home',
+    redirectTo: '',
   },
 ];
