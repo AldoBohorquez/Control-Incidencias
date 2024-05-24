@@ -23,10 +23,14 @@ export class LoginComponent {
   formUser!: FormGroup;
   apiS = inject(ApiService);
 
+  selectedRole: number | null = null;
+
+
   constructor() {
     this.formUser = this.fb.group({
       email: ['',[]],
       password: ['',[]],
+      role: ['',[]],
     });
   }
 
@@ -44,16 +48,23 @@ export class LoginComponent {
   }
   
 
+  onRoleChange(event: any) {
+    const roleValue = event.target.value;
+    this.selectedRole = roleValue;
+    console.log('Selected role:', this.selectedRole);
+  }
+  
   login(){
     const user:any = this.formUser.value as any;
     console.log(user);
-
+  
     this.apiS.loginUser(user).subscribe((data:any)=>{
       console.log(data);
       
       this.route.navigate(['userPanel']);
-
+  
     })
     
   }
 }
+
