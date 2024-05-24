@@ -9,7 +9,7 @@ import { AdminListComponent } from './pages/admin-list/admin-list.component';
 import { AdminListUserComponent } from './pages/admin-list-user/admin-list-user.component';
 import { UserCreateTareaComponent } from './pages/user-create-tarea/user-create-tarea.component';
 import { AdminCreateUserComponent } from './pages/admin-create-user/admin-create-user.component';
-import { AuthGuard } from './services/guard/AuthGuard.service';
+import { permisionGuard } from './services/guard/permision.guard';
 
 export const routes: Routes = [
   {
@@ -19,10 +19,13 @@ export const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+    canActivate: [permisionGuard],
   },
   {
     path: 'userPanel',
     component: UserPanelComponent,
+    canActivate: [permisionGuard],
+
   },
   {
     path: 'userAssigned/:id',
@@ -51,7 +54,7 @@ export const routes: Routes = [
   {
     path: 'adminCreateUser',
     component: AdminCreateUserComponent,
-    canActivate: [AuthGuard],
+    canActivate: [permisionGuard],
   },
   {
     path: '**',

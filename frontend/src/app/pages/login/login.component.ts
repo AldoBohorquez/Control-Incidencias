@@ -23,8 +23,8 @@ export class LoginComponent {
   formUser!: FormGroup;
   apiS = inject(ApiService);
 
-  role: number = 0;
-  selectedRole: number | null = null;
+  role: boolean = false;
+  selectedRole: boolean = false;
 
 
   constructor() {
@@ -35,38 +35,31 @@ export class LoginComponent {
   }
 
   loginUser() {
-    this.apiS.loginUser(this.formUser.value).subscribe({
-      next: (data) => {
-        console.log(this.role);
-        this.authService.login(data,this.role); // Call AuthService login method
-        this.formUser.reset();
-        this.route.navigateByUrl('userPanel');
-      },
-      error: (err) => {
-        console.error(err);
-      }
-    });
-  }
-  
+    const user = this.formUser.value;
+
+    this.authService.login(user, this.selectedRole) // Pass selectedRole
+      .subscribe({
+        next: (data) => {
+          console.log('login');
+          
+          this.authService.isAth(true);
+          this.formUser.reset();
+          this.route.navigateByUrl('userPanel'); // Use Router for navigation
+        },
+        error: (err) => {
+          console.error(err);
+        }
+      });
+    }
 
   onRoleChange(event: any) {
     const roleValue = event.target.value;
     this.selectedRole = roleValue;
     console.log('Selected role:', this.selectedRole);
-    this.role = roleValue;
-  }
-  
-  login(){
-    const user:any = this.formUser.value as any;
-    console.log(user);
-  
-    this.apiS.loginUser(user).subscribe((data:any)=>{
-      console.log(data);
-      
-      this.route.navigate(['userPanel']);
-  
-    })
+    this.role = this.selectedRole;
+    console.log(this.role);
     
   }
+  
 }
 
