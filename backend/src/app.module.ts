@@ -39,11 +39,10 @@ import { AreaService } from './area/area.service';
   imports: [TypeOrmModule.forRoot({
     type: "postgres",
     host: "localhost",
-   
     port: 5432,
     username: "postgres",
-    password: "DJE20ben",
-    database: "CodeChallenge",
+    password: "123",
+    database: "code",
     synchronize: true,
     logging: true,
     entities: [AdminEntity,DateshEntity,IncidentsEntity,SolutionsEntity,StatusEntity,TestsEntity,UsersEntity,AreaEntity],
