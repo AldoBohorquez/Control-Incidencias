@@ -7,6 +7,7 @@ import { StatusService } from '../../services/status.service';
 import { Status } from '../../interfaces/status.interface';
 import { UsersService } from '../../services/users.service';
 import { users } from '../../interfaces/users.interfaces';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-list',
@@ -16,6 +17,8 @@ import { users } from '../../interfaces/users.interfaces';
   styleUrl: './admin-list.component.css'
 })
 export class AdminListComponent {
+
+  private router = inject(Router);
 
   private serviceAreas = inject(AreasService);
 
@@ -45,6 +48,11 @@ export class AdminListComponent {
     this.serviceUsers.getUsers(area);
     this.users = this.serviceUsers.users();
     console.log(this.users);
+  }
+
+  logout() {
+    localStorage.removeItem('token'); 
+    this.router.navigateByUrl('login');
   }
 
 }
