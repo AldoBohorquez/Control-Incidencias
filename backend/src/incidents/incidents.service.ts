@@ -126,4 +126,29 @@ export class IncidentsService {
     }
 
 
+    async updateUserAsignated(id_incident:number,userId:number)
+    {
+        try {
+            const incidentFind = await this.dataSource.getRepository(IncidentsEntity).findOne({where:{id_incident:id_incident},relations:['user']});
+
+            if(!incidentFind)
+            {
+                return new HttpException('No se encontro el incidente',HttpStatus.NOT_FOUND)
+            }
+
+            const userFind = await this.dataSource.getRepository(UsersEntity).findOne({where:{id_user:userId}});
+
+            if(!userFind)
+            {
+                return new HttpException('No se encontro el usuario',HttpStatus.NOT_FOUND)
+            }
+
+            incidentFind.userAsignated = userFind.nombre;
+
+            return await this.dataSource.getRepository(IncidentsEntity).save(incidentFind);
+        } catch (error) {
+            throw new HttpException('Error al actualizar los datos',HttpStatus.BAD_REQUEST,error)
+        }
+    }
+
 }

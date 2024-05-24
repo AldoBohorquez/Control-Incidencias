@@ -135,13 +135,24 @@ export class UsersService {
     {
         try {
             const userFind = await this.dataSource.getRepository(UsersEntity).findOne({where:{id_user:id_user}});
-            
+
+            const incidentsFind = await this.dataSource.getRepository(IncidentsEntity).find({where:{user:userFind},relations:['user']});
+
+            if(!incidentsFind)
+            {
+                return new HttpException('No se encontro el indice',HttpStatus.BAD_REQUEST)
+            }
+
             if(!userFind)
             {
                 return new HttpException('No se encontro el usuario',HttpStatus.NOT_FOUND)
             }
 
-
+            incidentsFind.forEach(async element => {
+                element.user = null;
+                element.userAsignated = null;
+                await this.dataSource.getRepository(IncidentsEntity).save(element);
+            });
 
       return await this.dataSource.getRepository(UsersEntity).remove(userFind);
     } catch (error) {
@@ -167,7 +178,7 @@ export class UsersService {
         .findOne({ where: { correo: correo } });
     async login(correo:string,password:string)
     {
-        let aux:boolean = true;
+        let aux:boolean = false;
         try {
             const userFind = await this.dataSource.getRepository(UsersEntity).findOne({where:{correo:correo}});
 
@@ -175,6 +186,7 @@ export class UsersService {
         .getRepository(AdminEntity)
         .findOne({ where: { correo: correo } });
 
+            if(userFind || adminFind)
       if (!userFind || !adminFind) {
         return new HttpException(
           'Correo no registrado',
@@ -189,7 +201,7 @@ export class UsersService {
 
             if(!adminFind)
             {
-                aux = false;
+                aux = true;
             }
             
             if(aux == false)
