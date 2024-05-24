@@ -131,6 +131,17 @@ export class UsersService {
           HttpStatus.NOT_FOUND,
         );
       }
+    async deleteUser(id_user:number)
+    {
+        try {
+            const userFind = await this.dataSource.getRepository(UsersEntity).findOne({where:{id_user:id_user}});
+            
+            if(!userFind)
+            {
+                return new HttpException('No se encontro el usuario',HttpStatus.NOT_FOUND)
+            }
+
+
 
       return await this.dataSource.getRepository(UsersEntity).remove(userFind);
     } catch (error) {
@@ -154,6 +165,11 @@ export class UsersService {
       const userFind = await this.dataSource
         .getRepository(UsersEntity)
         .findOne({ where: { correo: correo } });
+    async login(correo:string,password:string)
+    {
+        let aux:boolean = true;
+        try {
+            const userFind = await this.dataSource.getRepository(UsersEntity).findOne({where:{correo:correo}});
 
       const adminFind = await this.dataSource
         .getRepository(AdminEntity)
@@ -165,6 +181,21 @@ export class UsersService {
           HttpStatus.BAD_REQUEST,
         );
       }
+
+            if(!userFind)
+            {
+                aux = false;
+            }
+
+            if(!adminFind)
+            {
+                aux = false;
+            }
+            
+            if(aux == false)
+            {
+                return new HttpException('Correo no registrado',HttpStatus.BAD_REQUEST)
+            }
 
       if (userFind) {
         const bcrypt = require('bcrypt');
