@@ -10,6 +10,7 @@ import { AdminListUserComponent } from './pages/admin-list-user/admin-list-user.
 import { UserCreateTareaComponent } from './pages/user-create-tarea/user-create-tarea.component';
 import { AdminCreateUserComponent } from './pages/admin-create-user/admin-create-user.component';
 import { authGuard, authGuardMatch } from './services/guard/auth.guard';
+import { AdminEdElUserComponent } from './pages/admin-ed-el-user/admin-ed-el-user.component';
 
 export const routes: Routes = [
   {
@@ -60,6 +61,11 @@ export const routes: Routes = [
     path: 'adminCreateUser',
     component: AdminCreateUserComponent,
     canActivate: [authGuardMatch],
+  },
+  {
+    path: 'adminEdElUser',
+    component: AdminEdElUserComponent,
+    
   },
   {
     path: '**',
