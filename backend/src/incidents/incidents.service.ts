@@ -71,6 +71,8 @@ export class IncidentsService {
                 return new HttpException('No se encontro el area',HttpStatus.NOT_FOUND)
             }
 
+            bodyIncident.userAsignated = userFind.nombre
+
             const saveIncident = await this.dataSource.getRepository(IncidentsEntity).save(bodyIncident);
 
             areaFind.incident.push(saveIncident);
