@@ -3,6 +3,7 @@ import { NavbarUserComponent } from '../../shared/navbar-user/navbar-user.compon
 import { IncidentsService } from '../../services/incidents.service';
 import { Incidents } from '../../interfaces/incidents.interface';
 import { RouterLink } from '@angular/router';
+import { AlertsService } from '../../services/alert.service';
 
 @Component({
   selector: 'app-user-panel',
@@ -13,16 +14,20 @@ import { RouterLink } from '@angular/router';
 })
 export class UserPanelComponent {
 
-  private serviceIncidents = inject(IncidentsService)
-
+  private serviceIncidents = inject(IncidentsService);
+  alertsService = inject(AlertsService);
   incidents = Array<Incidents>();
   
   constructor() {
-    effect(()=>
-    {
-      this.incidents = this.serviceIncidents.incidents();
-    })
+    effect(() => {
+        this.incidents = this.serviceIncidents.incidents();
+        console.log(this.incidents);
+        setTimeout(() => {
+        if (this.incidents.length === 0) {
+          this.alertsService.alert('No existen incidencias', 'error');
+        }
+      }, 3000); 
+    });
   }
-
-
 }
+
