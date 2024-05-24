@@ -109,21 +109,15 @@ export class UsersService {
 
     async login(correo:string,password:string)
     {
-        let aux:boolean = true;
+        let aux:boolean = false;
         try {
             const userFind = await this.dataSource.getRepository(UsersEntity).findOne({where:{correo:correo}});
 
             const adminFind = await this.dataSource.getRepository(AdminEntity).findOne({where:{correo:correo}});
 
-
-            if(!userFind)
+            if(userFind || adminFind)
             {
-                aux = false;
-            }
-
-            if(!adminFind)
-            {
-                aux = false;
+                aux = true;
             }
             
             if(aux == false)
