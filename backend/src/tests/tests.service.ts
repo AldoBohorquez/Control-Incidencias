@@ -41,7 +41,7 @@ export class TestsService {
         try {
             const test = this.dataSource.getRepository(TestsEntity).create(bodyTest)
 
-            const solutionFind = await this.dataSource.getRepository(SolutionsEntity).findOne({where:{id_solution:test.id_test}})
+            const solutionFind = await this.dataSource.getRepository(SolutionsEntity).findOne({where:{id_solution:bodyTest.solutionsId},relations:['test']})
 
             if (!solutionFind) {
                 return new HttpException('No se encontro la solucion',HttpStatus.NOT_FOUND)
