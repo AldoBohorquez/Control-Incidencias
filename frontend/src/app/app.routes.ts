@@ -27,9 +27,9 @@ export const routes: Routes = [
         component:UserAssignedComponent
     },
     {
-        path : '**',
-        pathMatch : 'full',
-        redirectTo : 'home'
-      }
+    path : '**',
+    pathMatch : 'full',
+    redirectTo : 'home'
+    }
 
 ];
