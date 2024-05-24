@@ -23,4 +23,8 @@ export class ApiService {
   listUsers(){
     return this.http.get<any>(this.urlApi+'users',{ headers: { 'Access-Control-Allow-Origin': '*' } });
   }
+
+  addUser(user:any){
+    return this.http.post<any>(this.urlApi+'users',{ headers: { 'Access-Control-Allow-Origin': '*' } });
+  }
 }
