@@ -74,11 +74,13 @@ export class UsersService {
     {
         try {
             const userFind = await this.dataSource.getRepository(UsersEntity).findOne({where:{id_user:id_user}});
-
+            
             if(!userFind)
             {
                 return new HttpException('No se encontro el usuario',HttpStatus.NOT_FOUND)
             }
+
+
 
             return await this.dataSource.getRepository(UsersEntity).remove(userFind);
         } catch (error) {
@@ -96,13 +98,24 @@ export class UsersService {
 
     async login(correo:string,password:string)
     {
+        let aux:boolean = true;
         try {
             const userFind = await this.dataSource.getRepository(UsersEntity).findOne({where:{correo:correo}});
 
             const adminFind = await this.dataSource.getRepository(AdminEntity).findOne({where:{correo:correo}});
 
 
-            if(!userFind || !adminFind)
+            if(!userFind)
+            {
+                aux = false;
+            }
+
+            if(!adminFind)
+            {
+                aux = false;
+            }
+            
+            if(aux == false)
             {
                 return new HttpException('Correo no registrado',HttpStatus.BAD_REQUEST)
             }

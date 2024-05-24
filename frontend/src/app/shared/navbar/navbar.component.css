@@ -5,15 +5,19 @@
 }
 
 .logo {
+<<<<<<< Updated upstream
     margin-left: 2vw;
     width: 100px;
     height: 70px;
+=======
+    width: 100px;
+    height: 100px;
+>>>>>>> Stashed changes
 }
 
 .elementos {
     margin-top: 1vh;
 }
-
 
 
 @media (max-width: 580px) {

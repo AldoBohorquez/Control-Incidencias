@@ -1,4 +1,5 @@
-import { IsNumber, IsString } from "class-validator";
+import { IsJSON, IsNumber, IsString } from "class-validator";
+import { UsersEntity } from "src/users/entity/users.entity";
 
 export class IncidentsDto {
 
