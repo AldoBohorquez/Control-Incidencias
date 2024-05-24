@@ -44,6 +44,13 @@ export class LoginComponent {
   login(){
     const user:any = this.formUser.value as any;
     console.log(user);
+
+    this.apiS.loginUser(user).subscribe((data:any)=>{
+      console.log(data);
+      
+      this.route.navigate(['userPanel']);
+
+    })
     
   }
 }

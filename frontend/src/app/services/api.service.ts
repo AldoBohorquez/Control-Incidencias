@@ -11,6 +11,8 @@ export class ApiService {
   constructor() { }
 
   loginUser(user: any): Observable<any> {
-    return this._http.post<any>('http://localhost:3000/users/login', user,{ headers: { 'Access-Control-Allow-Origin': '*' } });
+    console.log(user);
+    
+    return this._http.post<any>('http://localhost:3000/admin/login', user,{ headers: { 'Access-Control-Allow-Origin': '*' } });
   }
 }

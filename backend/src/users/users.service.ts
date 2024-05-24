@@ -147,7 +147,7 @@ export class UsersService {
                 {
                     return new HttpException('Contraseña incorrecta',HttpStatus.BAD_REQUEST)
                 }
-
+                console.log(adminFind)
                 return {id:adminFind.id_admin,nombre:adminFind.nombre,apPat:adminFind.apPat,apMat:adminFind.apMat,correo:adminFind.correo, adminB:adminFind.adminB}
             }
 
