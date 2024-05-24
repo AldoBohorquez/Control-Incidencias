@@ -27,4 +27,9 @@ export class ApiService {
   addUser(user:any){
     return this.http.post<any>(this.urlApi+'users',{ headers: { 'Access-Control-Allow-Origin': '*' } });
   }
+
+
+  getAreas(){
+    return this.http.get<any>('http://localhost:3000/area',{ headers: { 'Access-Control-Allow-Origin': '*' } })
+  }
 }

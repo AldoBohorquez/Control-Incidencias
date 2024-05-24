@@ -10,7 +10,6 @@ import { AdminListUserComponent } from './pages/admin-list-user/admin-list-user.
 import { UserCreateTareaComponent } from './pages/user-create-tarea/user-create-tarea.component';
 import { AdminCreateUserComponent } from './pages/admin-create-user/admin-create-user.component';
 import { authGuard, authGuardMatch } from './services/guard/auth.guard';
-import { AdminEdElUserComponent } from './pages/admin-ed-el-user/admin-ed-el-user.component';
 
 export const routes: Routes = [
   {
@@ -30,46 +29,34 @@ export const routes: Routes = [
   {
     path: 'userAssigned/:id',
     component: UserAssignedComponent,
-    canActivate: [authGuardMatch],
   },
   {
     path: 'userProgress/:id',
     component: UserProgressComponent,
-    canActivate: [authGuardMatch],
   },
   {
     path: 'userFinished/:id',
     component: UserFinishedComponent,
-    canActivate: [authGuardMatch],
   },
   {
     path: 'adminList',
     component: AdminListComponent,
-    canActivate: [authGuardMatch],
   },
   {
     path: 'adminListUser',
     component: AdminListUserComponent,
-    canActivate: [authGuardMatch],
   },
   {
     path: 'userCreateTarea',
     component: UserCreateTareaComponent,
-    canActivate: [authGuardMatch],
   },
   {
     path: 'adminCreateUser',
     component: AdminCreateUserComponent,
-    canActivate: [authGuardMatch],
-  },
-  {
-    path: 'adminEdElUser',
-    component: AdminEdElUserComponent,
-    
   },
   {
     path: '**',
     pathMatch: 'full',
-    redirectTo: '',
+    redirectTo: 'home',
   },
 ];

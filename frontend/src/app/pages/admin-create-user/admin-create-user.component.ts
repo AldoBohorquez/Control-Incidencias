@@ -21,7 +21,13 @@ export class AdminCreateUserComponent {
 
   constructor(){
     this.formUser = this.fb.group({
-
+      nombre:   ['',[]],
+      apPat:   ['',[]],
+      apMat:   ['',[]],
+      correo:   ['',[]],
+      password:   ['',[]],
+      area:   ['',[]],
+      puesto:   ['',[]],
     })
   }
 }
