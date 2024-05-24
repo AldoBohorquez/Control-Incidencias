@@ -7,10 +7,9 @@
                     <i class="fas fa-sort"></i>
                 </span>
                 <select class="form-select">
-                    <option selected>Todos</option>
-                    <option value="1">RR.HH</option>
-                    <option value="2">Sistemas</option>
-                    <option value="3">Contabilidad</option>
+                    @for (ar of areas; track $index) {
+                    <option selected [value]="ar.id_area">{{ar.nombre}}</option>
+                    }
                 </select>
             </div>
         </div>
@@ -20,10 +19,9 @@
                     <i class="fas fa-sort"></i>
                 </span>
                 <select class="form-select">
-                    <option selected>Todos</option>
-                    <option value="1">Asignados</option>
-                    <option value="2">En curso</option>
-                    <option value="3">Finalizado</option>
+                    @for (st of status; track $index) {
+                    <option selected [value]="st.id_status">{{st.nombre}}</option>
+                    }
                 </select>
             </div>
         </div>
@@ -50,19 +48,18 @@
             <div class="col-md-3 col-sm-6 mb-4">
                 <label class="ms-2">Área:</label>
                 <select class="form-select">
-                    <option selected>Todos</option>
-                    <option value="1">RR.HH</option>
-                    <option value="2">Sistemas</option>
-                    <option value="3">Contabilidad</option>
+                    @for (ar of areas; track $index) {
+                        <option id="area" selected>{{ar.nombre}}</option>
+                    }
                 </select>
+                <button type="button" (click)="getUsers()" class="btn btn-primary btn-sm mt-2 float-end ">Buscar</button>
             </div>
             <div class="col-md-3 col-sm-6 mb-2">
                 <label class="ms-2 mt-md-4 mt-sm-0">Usuario:</label>
                 <select class="form-select">
-                    <option selected>Selecciona</option>
-                    <option value="1">Juanito</option>
-                    <option value="2">Perengano</option>
-                    <option value="3">Sultano</option>
+                    @for (us of users; track $index) {
+                    <option selected>{{us.nombre}}</option>
+                    }
                 </select>
                 <button type="button" class="btn btn-primary btn-sm mt-2 float-end ">Asignar</button>
             </div>

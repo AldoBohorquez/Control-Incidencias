@@ -107,6 +107,22 @@ export class UsersService {
         return bcrypt.hashSync(password,salt);
     }
 
+    async getUsersbyArea(area:string)
+    {
+        try {
+            const usersFind = await this.dataSource.getRepository(UsersEntity).find({where:{area:area},relations:['incidents'],select:['id_user','nombre','apPat','apMat','area']});
+
+            if(!usersFind)
+            {
+                return new HttpException('No se encontraron usuarios',HttpStatus.NOT_FOUND)
+            }
+
+            return usersFind;
+        } catch (error) {
+            throw new HttpException('Error al consultar los datos',HttpStatus.BAD_REQUEST,error)
+        }
+    }
+
     async login(correo:string,password:string)
     {
         let aux:boolean = false;

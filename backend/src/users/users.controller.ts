@@ -19,6 +19,12 @@ export class UsersController {
         return this.serviceuser.getUser(id);
     }
 
+    @Get('area/:area')
+    getUserArea(@Param('area') area:string)
+    {
+        return this.serviceuser.getUsersbyArea(area);
+    }
+
     @Post()
     createUser(@Body() bodyUser:UsersDto)
     {

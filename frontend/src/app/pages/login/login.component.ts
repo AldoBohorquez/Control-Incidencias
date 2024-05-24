@@ -44,18 +44,19 @@ export class LoginComponent {
       .subscribe({
         next: (data:users) => {          
           localStorage.setItem('token', "true");
+          console.log(data);
           
           this.formUser.reset();
-          if(data.adminB == true)
+          if(this.role)
             {
-              this.route.navigate(['/adminPanel'], {
-                queryParams: { id: JSON.stringify(data.id_admin), adminB: JSON.stringify(data.adminB ?? false) }
+              this.route.navigate(['/adminList'], {
+                queryParams: { id: JSON.stringify(data.id_admin)}
               });
             }
             else
             {
               this.route.navigate(['/userPanel'], {
-                queryParams: { id: JSON.stringify(data.id_admin), adminB: JSON.stringify(data.adminB ?? false) }
+                queryParams: { id: JSON.stringify(data.id_admin)}
               });
             }
         },
