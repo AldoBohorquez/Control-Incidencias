@@ -22,13 +22,16 @@
     </div>
     <table class="table table-bordered mt-5">
         <tbody>
-            <tr>
+            @for (usuario of misUsuarios; track usuario.id) {
+            <tr class="Register">
                 <th>
                     <div class="container mt-2">
                         <div class="row align-items-center">
                             <div class="col-9 m-2">
-                                <label>Panchito Yeso Manteque</label> <br>
-                                <label class="email">mantequegmail.com</label>
+                                <p>{{usuario.nombre}} {{usuario.apPat}} {{usuario.apMat}} ㅤㅤㅤ <span class="badge bg-primary">{{usuario.puesto}}</span>ㅤㅤㅤ<span class="badge bg-primary">{{usuario.area}}</span></p>
+                                <br>
+                                <label class="email">{{usuario.correo}}.com</label>
+
                             </div>
                             <div class="col-2">
                                 <button type="button" class="btn btn-sm btn-primary ps-5 pe-5">
@@ -39,23 +42,8 @@
                     </div>
                 </th>
             </tr>
-            <tr>
-                <th>
-                    <div class="container mt-2">
-                        <div class="row align-items-center">
-                            <div class="col-9 m-2">
-                                <label>Panchito Yeso Manteque</label> <br>
-                                <label class="email">mantequegmail.com</label>
-                            </div>
-                            <div class="col-2">
-                                <button type="button" class="btn btn-sm btn-primary ps-5 pe-5">
-                                    Ver
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </th>
-            </tr>
+            }
+
         </tbody>
     </table>
 </div>
